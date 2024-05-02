@@ -43,6 +43,6 @@ end
 
 mean(mse)
 
-for i = 1:10
+for i = 1:N
     mean(beta_iter(i,:))
 end
