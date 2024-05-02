@@ -35,14 +35,14 @@ for k = 1:N
     edge1 = edgeunique(:,1);
     edge2 = edgeunique(:,2);
 
-    tau_est = causal_gfl(y, z, edge1, edge2, lambda);
-    %[beta_est, tau_est] = causal_gfl_cov(y, X, z, edge1, edge2, lambda);;
+    %tau_est = causal_gfl(y, z, edge1, edge2, lambda);
+    [beta_est, tau_est] = causal_gfl_cov(y, X, z, edge1, edge2, lambda);;
     mse(k) = sum((tau0 - tau_est).^2) / n;
     beta_iter(:,k) = beta_est;
 end
 
 mean(mse)
 
-%for i = 1:10
-%    mean(beta_iter(i,:))
-%end
+for i = 1:10
+    mean(beta_iter(i,:))
+end
