@@ -25,7 +25,6 @@ end
 edge1 = edge1';
 edge2 = edge2';
 
-%lambda = logspace(-2,2,50);
 lambda = 1;
 mse = zeros(1,N);
 
@@ -46,15 +45,3 @@ for k = 1:N
 end
 
 mean(mse)
-
-subplot(1,2,1)
-scatter(X(1,:), X(2,:), 5, tau0)
-xlabel('X1') 
-ylabel('X2') 
-
-subplot(1,2,2)
-scatter(X(1,:), X(2,:), 5, tau_est)
-xlabel('X1') 
-ylabel('X2') 
-colorbar()
-caxis([0 1])
