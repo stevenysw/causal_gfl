@@ -7,7 +7,6 @@ d = 10;
 
 sigma = 0.5;
 
-%lambda = logspace(-2,2,50);
 lambda = 0.1;
 mse = zeros(1,N);
 
