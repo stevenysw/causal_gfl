@@ -8,7 +8,7 @@ d = 5;
 sigma = 0.5;
 
 e = repmat(0.5, [1, n]);
-%lambda = logspace(-2,2,50);
+
 lambda = 0.5;
 mse = zeros(1,N);
 
