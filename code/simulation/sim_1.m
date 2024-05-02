@@ -25,7 +25,6 @@ end
 edge1 = edge1';
 edge2 = edge2';
 
-%lambda = logspace(-2,2,50);
 lambda = 1;
 mse = zeros(1,N);
 
