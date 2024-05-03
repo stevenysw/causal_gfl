@@ -7,15 +7,15 @@ d = 10;
 
 sigma = 0.5;
 
-lambda = 0.1;
+lambda = 0.5;
 mse = zeros(1,N);
 
 for k = 1:N
     X = rand(d,n);
     beta = rand(d, 1);
     
-    m = 3 * double((X' * beta)' > (round(d/2) - 2));
-    m(m == 0) = -3;
+    m = 2 * double((X' * beta)' > (round(d/2) - 1));
+    m(m == 0) = -2;
     
     e = double((X.^2' * beta)' > (floor(sqrt(d)) - 1));
     e(e == 0) = 0.25;
