@@ -14,8 +14,8 @@ for k = 1:N
     X = rand(d,n);
     beta = rand(d, 1);
     
-    m = 2 * double((X' * beta)' > (round(d/2) - 2));
-    m(m == 0) = -2;
+    m = 3 * double((X' * beta)' > (round(d/2) - 2));
+    m(m == 0) = -3;
     
     e = double((X.^2' * beta)' > (floor(sqrt(d)) - 1));
     e(e == 0) = 0.25;
