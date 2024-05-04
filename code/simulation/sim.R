@@ -79,7 +79,6 @@ for (i in 1:N){
   xlasso_est = predict(xlasso_fit, X)
   mse_x[i] = mean((xlasso_est - tau0)^2)
   
-  
   f_fit = causal_forest(X, y, z, num.trees = 2000, sample.fraction = 0.1)
   pred = predict(f_fit)
   f_est  = pred$predictions
@@ -250,10 +249,6 @@ for (i in 1:N){
   xlasso_est = predict(xlasso_fit, X)
   mse_x[i] = mean((xlasso_est - tau0)^2)
   
-  ulasso_fit = ulasso(X, z, y)
-  ulasso_est = predict(ulasso_fit, X)
-  mse_u[i] = mean((ulasso_est - tau0)^2)
-  
   f_fit = causal_forest(X, y, z, num.trees = 2000, sample.fraction = 0.1)
   pred = predict(f_fit)
   f_est  = pred$predictions
@@ -312,10 +307,6 @@ for (i in 1:N){
   xlasso_fit = xlasso(X, z, y)
   xlasso_est = predict(xlasso_fit, X)
   mse_x[i] = mean((xlasso_est - tau0)^2)
-  
-  ulasso_fit = ulasso(X, z, y)
-  ulasso_est = predict(ulasso_fit, X)
-  mse_u[i] = mean((ulasso_est - tau0)^2)
   
   f_fit = causal_forest(X, y, z)
   pred = predict(f_fit)
