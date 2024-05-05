@@ -7,7 +7,7 @@ d = 10;
 
 sigma = 0.5;
 
-lambda = 0.5;
+lambda = 0.1;
 mse = zeros(1,N);
 beta_iter = zeros(d,N);
 
