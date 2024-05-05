@@ -22,7 +22,7 @@ for k = 1:N
     tau0 = cellfun(@d10, num2cell(X, 1));
     
     z = binornd(1, e);
-    y = m + (z - 0.5) .* tau0 + sigma * normrnd(0, 1, [1, n]);
+    y = m + z .* tau0 + sigma * normrnd(0, 1, [1, n]);
     
     Id1 = nearestneighbour(X, 'num', K)';
     Id2 = repmat(1:n, 1, K);
