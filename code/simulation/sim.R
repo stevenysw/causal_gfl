@@ -39,7 +39,7 @@ d10 <- function(x){
 }
 
 # Scenario 1
-set.seed(123)
+set.seed(1)
 
 N = 500
 n = 50
@@ -92,62 +92,7 @@ mean(mse_x)
 mean(mse_f)
 
 # Scenario 2
-set.seed(123)
-N = 500
-n = 50
-x1 = rep((1:n) / n, each = n)
-x2 = rep((1:n) / n, n)
-X = cbind(x1, x2)
-
-e = as.numeric(apply(X, 1, d25) < apply(X, 1, d75))
-e[e == 0] = 0.1
-e[e == 1] = 0.9
-
-m = (1/25 * x1 + 0.75 * x2) < 0.5
-tau0 = x1 < 0.6 & x2 < 0.6
-sigma = 1
-
-mse_r = rep(0, N)
-mse_s = rep(0, N)
-mse_t = rep(0, N)
-mse_x = rep(0, N)
-mse_f = rep(0, N)
-
-for (i in 1:N){
-  z = rbinom(n^2, 1, e)
-  
-  y = m + (z - 0.5) * tau0 + sigma * rnorm(n^2)
-    
-  rlasso_fit = rlasso(X, z, y)
-  rlasso_est = predict(rlasso_fit, X)
-  mse_r[i] = mean((rlasso_est - tau0)^2)
-  
-  slasso_fit = slasso(X, z, y)
-  slasso_est = predict(slasso_fit, X)
-  mse_s[i] = mean((slasso_est - tau0)^2)
-  
-  tlasso_fit = tlasso(X, z, y)
-  tlasso_est = predict(tlasso_fit, X)
-  mse_t[i] = mean((tlasso_est - tau0)^2)
-  
-  xlasso_fit = xlasso(X, z, y)
-  xlasso_est = predict(xlasso_fit, X)
-  mse_x[i] = mean((xlasso_est - tau0)^2)
-  
-  f_fit = causal_forest(X, y, z, num.trees = 2000, sample.fraction = 0.1)
-  pred = predict(f_fit)
-  f_est  = pred$predictions
-  mse_f[i] = mean((f_est - tau0)^2)
-}
-
-mean(mse_r)
-mean(mse_s)
-mean(mse_t)
-mean(mse_x)
-mean(mse_f)
-
-# Scenario 3
-set.seed(123)
+set.seed(1)
 
 N = 500
 n = 10000
@@ -201,8 +146,8 @@ mean(mse_t)
 mean(mse_x)
 mean(mse_f)
 
-# Scenario 4
-set.seed(123)
+# Scenario 3
+set.seed(1)
 
 N = 500
 d = 10
@@ -261,8 +206,8 @@ mean(mse_t)
 mean(mse_x)
 mean(mse_f)
 
-# Scenario 5
-set.seed(123)
+# Scenario 4
+set.seed(1)
 
 N = 500
 d = 10
